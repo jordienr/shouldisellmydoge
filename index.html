@@ -15,9 +15,10 @@
         color: whitesmoke;
         text-align: center;
         font-family: "Courier New", Courier, monospace;
-        margin-top: 8rem;
       }
-
+      body {
+        margin: 0;
+      }
       button {
         background-color: rgb(72, 117, 72);
         padding: 1rem 2rem;
@@ -28,31 +29,58 @@
         margin-top: 2rem;
         color: white;
       }
+      .final {
+        font-size: 2rem;
+      }
+      header {
+        padding-top: 5rem;
+      }
+      .hide {
+        display: none;
+      }
       button:hover {
         cursor: pointer;
       }
       #result {
         margin-top: 2rem;
       }
+      a {
+        color: white;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 100vh;
+      }
     </style>
   </head>
   <body>
-    <header>
-      <img
-        height="44"
-        width="44"
-        src="https://media.tenor.com/images/c4b17df98a2119783b4dbbdd0aaf98b1/tenor.gif"
-        alt=""
-      />
-      <h1>Should I Sell my $DOGE?</h1>
-      <div id="result"></div>
-      <button onclick="calculate()">Calculate</button>
-    </header>
+    <div class="container">
+      <header>
+        <img
+          height="88"
+          width="88"
+          src="https://media.tenor.com/images/c4b17df98a2119783b4dbbdd0aaf98b1/tenor.gif"
+          alt=""
+        />
+        <h1>Should I Sell my Dogecoin?</h1>
+        <div id="result"></div>
+        <button id="calcBtn" onclick="calculate()">Calculate</button>
+      </header>
+      <footer>
+        <small><a href="https://twitter.com/jordienr">author</a></small>
+        <div>
+          <small>this is not financial advice</small>
+        </div>
+      </footer>
+    </div>
 
     <script>
       const result = document.getElementById("result");
+      const calcBtn = document.getElementById("calcBtn");
       const phrases = [
-        "Loading...",
         "Downloading the internet...",
         "The internet doesn't fit into your computer",
         "Downloading more RAM...",
@@ -67,11 +95,15 @@
       ];
       function calculate() {
         let counter = 0;
-
-        const loading = setInterval(() => {
+        result.innerHTML = "Loading...";
+        const loading = setInterval(function () {
+          console.log("test");
           result.innerHTML = phrases[counter];
           counter++;
           if (counter === phrases.length) {
+            result.classList.add("final");
+            calcBtn.classList.add("hide");
+
             clearInterval(loading);
           }
         }, 2000);
