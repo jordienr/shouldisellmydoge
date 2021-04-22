@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Should I Sell My Doge - Use AI to predict the future</title>
+    <meta
+      name="description"
+      content="Should I Sell My Doge uses billion dollar technologies used by Google, Apple, Amazon and Facebook to predict the future of Dogecoin and tell you if you should sell or not. 100% Free."
+    />
+    <style>
+      :root {
+        background-color: #181a18;
+        color: whitesmoke;
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        margin-top: 8rem;
+      }
+
+      button {
+        background-color: rgb(72, 117, 72);
+        padding: 1rem 2rem;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 4px;
+        margin-top: 2rem;
+        color: white;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      #result {
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        height="44"
+        width="44"
+        src="https://media.tenor.com/images/c4b17df98a2119783b4dbbdd0aaf98b1/tenor.gif"
+        alt=""
+      />
+      <h1>Should I Sell my $DOGE?</h1>
+      <div id="result"></div>
+      <button onclick="calculate()">Calculate</button>
+    </header>
+
+    <script>
+      const result = document.getElementById("result");
+      const phrases = [
+        "Loading...",
+        "Downloading the internet...",
+        "The internet doesn't fit into your computer",
+        "Downloading more RAM...",
+        "Hacking the mainframe",
+        "Hacking the secondaryframe",
+        "Checking Elon Musks twitter",
+        "Scraping trends from r/dankmemes",
+        "Calculating possibilities of capitalism collapsing",
+        "Looking at pictures of shibes",
+        "Fetching results from AI...",
+        "No, you should hold your Dogecoin",
+      ];
+      function calculate() {
+        let counter = 0;
+
+        const loading = setInterval(() => {
+          result.innerHTML = phrases[counter];
+          counter++;
+          if (counter === phrases.length) {
+            clearInterval(loading);
+          }
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
